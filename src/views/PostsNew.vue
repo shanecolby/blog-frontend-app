@@ -1,9 +1,7 @@
 <template>
-  <div class="posts-index">
-    <h1>{{ message }}</h1>
-    <!-- <h1>{{ posts }}</h1> -->
-    <div v-for="post in posts">
-      <p>{{ post.title }}</p>
+  <div class="posts-new">
+    <form v-on:submit.prevent="submit()">
+    <h1>Make a new post</h1>
     </div>
   </div>
 </template>
