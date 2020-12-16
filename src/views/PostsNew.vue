@@ -10,7 +10,7 @@
         <label>Title:</label> 
         <input type="text" class="form-control" v-model="title">
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label>Ingredients:</label>
         <input type="text" class="form-control" v-model="ingredients">
       </div>
@@ -25,7 +25,7 @@
       <div class="form-group">
         <label>Image Url:</label>
         <input type="text" class="form-control" v-model="imageUrl">
-      </div>
+      </div> -->
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
   </div>
