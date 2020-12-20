@@ -24,7 +24,7 @@
       <div class="form-group">
         <label>Password confirmation:</label>
         <input type="password" class="form-control" v-model="passwordConfirmation">
-        <small v-if="password ! == password.confirmation">Passwords don't match</small>
+        <small v-if="password !== password.confirmation">Passwords don't match</small>
       </div>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>

@@ -27,10 +27,10 @@
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a v-if="!isLoggedIn()" class="dropdown-item" href="#">Login</a>
+          <a v-if="isLoggedIn()" class="dropdown-item" href="#">Logout</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a v-if="isLoggedIn()" class="dropdown-item" href="#">Sign up</a>
         </div>
       </li>
       <li class="nav-item">
@@ -45,6 +45,7 @@
 </nav>
 
     </div>
+    <h1>Logged in? {{ isLoggedIn() }}</h1>
     <router-view/>
   </div>
 </template>
@@ -71,3 +72,17 @@
   color: #42b983;
 } */
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>

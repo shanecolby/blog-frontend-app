@@ -2,6 +2,8 @@
 
   <div class="posts-new">
     <form v-on:submit.prevent="submit()">
+       <img v-if="status" v-bind:src="`https://http.cat/${status}`" width="700px">
+
       <h1>Make a new post</h1>
       <ul>
         <!-- <li class="text-danger" v-for="error in errors">{{ error }}</li> -->
@@ -9,6 +11,7 @@
       <div class="form-group">
         <label>Title:</label> 
         <input type="text" class="form-control" v-model="title">
+
       </div>
       <!-- <div class="form-group">
         <label>Ingredients:</label>
