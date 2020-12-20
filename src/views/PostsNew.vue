@@ -6,18 +6,18 @@
 
       <h1>Make a new post</h1>
       <ul>
-        <!-- <li class="text-danger" v-for="error in errors">{{ error }}</li> -->
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
         <label>Title:</label> 
         <input type="text" class="form-control" v-model="title">
 
       </div>
-      <!-- <div class="form-group">
-        <label>Ingredients:</label>
-        <input type="text" class="form-control" v-model="ingredients">
-      </div>
       <div class="form-group">
+        <label>New Post:</label>
+        <input type="text" class="form-control" v-model="post">
+      </div>
+      <!-- <div class="form-group">
         <label>Directions:</label>
         <input type="text" class="form-control" v-model="directions">
       </div>

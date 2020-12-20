@@ -83,6 +83,10 @@ export default {
         return false;
       }
     },
+    getUserId: function () {
+      console.log("getting user id..");
+      return localStorage.getItem("user_id");
+    },
   },
 };
 </script>
