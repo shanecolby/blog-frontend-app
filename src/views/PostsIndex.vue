@@ -2,7 +2,7 @@
   <div class="posts-index">
     <h1>{{ message }}</h1>
     <!-- <h1>{{ posts }}</h1> -->
-    <div v-for="post in posts">
+    <div v-for="post in filterBy(posts, searchTerm, 'title')">
       <p>{{ post.title }}</p>
     </div>
   </div>
@@ -13,11 +13,14 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function () {
     return {
       message: "This is the post index!",
       posts: [],
+      searchTerm: "",
     };
   },
   created: function () {

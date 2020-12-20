@@ -2,11 +2,11 @@
 
   <div class="posts-new">
     <form v-on:submit.prevent="submit()">
-       <img v-if="status" v-bind:src="`https://http.cat/${status}`" width="700px">
+       <!-- <img v-if="status" v-bind:src="`https://http.cat/${status}`" width="700px"> -->
 
       <h1>Make a new post</h1>
       <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        <li class="text-danger" v-for="error in errors"{{ error }}</li>
       </ul>
       <div class="form-group">
         <label>Title:</label> 
@@ -15,7 +15,7 @@
       </div>
       <div class="form-group">
         <label>New Post:</label>
-        <input type="text" class="form-control" v-model="post">
+        <input type="text" class="form-control" v-model="posts">
       </div>
       <!-- <div class="form-group">
         <label>Directions:</label>
@@ -42,7 +42,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "This is the post index!",
+      title: "",
       posts: [],
     };
   },
@@ -50,13 +50,27 @@ export default {
     this.postsIndex();
   },
   methods: {
-    postsIndex: function () {
-      console.log("in posts index");
-      axios.get("/api/posts").then((response) => {
-        console.log(response.data);
-        this.posts = response.post;
-      });
+    submit: function () {
+      var params = {
+        title: this.title,
+        post: this.post,
+      };
+      axios
+        .post("/api/posts", params)
+        .then((repsonse) => {
+          this.$router.push("/posts");
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
+    // postIndex: function () {
+    //   console.log("in posts index");
+    //   axios.get("/api/posts").then((response) => {
+    //     console.log(response.data);
+    //     this.posts = response.post;
+    //   });
+    // },
   },
 };
 </script>
