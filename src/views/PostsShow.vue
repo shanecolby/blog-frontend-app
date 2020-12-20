@@ -4,6 +4,11 @@
     <h1>title: {{ post.title }}</h1>
     <h1>body: {{ post.body }}</h1>
     <h1>image: {{ post.image }}</h1>
+
+    <router-link v-bind:to="`/recipes/${recipe.id}/edit`">Edit</router-link>
+    <br>
+
+    <button v-on:click="postsDestroy()">Delete</button>
   </div>
 </template>
 
@@ -30,6 +35,13 @@ export default {
         this.post = response.data;
       });
     },
+    // postsDestroy: function () {
+    //   console.log("destroying post..."),
+    //     axios.delete("/api/posts/${this.post.id}").then((response) => {
+    //       console.log(response.data);
+    //       this.$router.push("/posts");
+    //     });
+    // },
   },
 };
 </script>

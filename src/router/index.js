@@ -47,6 +47,12 @@ const routes = [
 
   },
   {
+    path: "/posts/:id/edit",
+    name: "posts-edit",
+    component: PostsEdit
+
+  },
+  {
     path: "/posts/new",
     name: "posts-new",
     component: PostsNew
@@ -58,12 +64,7 @@ const routes = [
     component: PostsShow
 
   },
-  {
-    path: "/posts/:id/edit",
-    name: "posts-edit",
-    component: PostsEdit
 
-  },
 
   {
     path: '/about',
